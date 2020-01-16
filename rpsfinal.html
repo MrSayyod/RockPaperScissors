@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors</title>
+    <h1>Welcome to the game ;)</h1>
+</head>
+<body>
+    <script>
+        let player = 0
+        let computer = 0
+        function insensitive(selections) {
+            let stringLength = selections.length;
+        let lowerCaseWord = selections.toLowerCase();
+        let firstLetter = (selections.slice(0, 1)).toUpperCase();
+        return firstLetter + lowerCaseWord.slice(1, stringLength); 
+      }
+        
+        function computerPlay() {
+            let options=['Rock', 'Paper', 'Scissors']
+            let compSelect=options[Math.floor(Math.random()*options.length)]
+return compSelect;            
+        }
+        function playRound(playerSelection, computerSelection) {
+            playerSelection=insensitive(playerSelection)
+            computerSelection=insensitive(computerSelection)
+                if (playerSelection === 'Rock' && computerSelection === 'Paper') {
+                    computer++;
+                    return alert("You lose. Paper beats Rock. Score: " + player + " to " + computer);
+                } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+                    player++;
+                    return alert("You win! Rock beats Scissors. Score: " + player + " to " + computer);
+                } else if (playerSelection === 'Rock' && computerSelection === 'Rock') {
+                    return alert ("Draw. Try again. Score: " + player + " to " + computer);
+                } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+                    player++;
+                    return alert ("You win! Rock beats Scissors. Score: " + player + " to " + computer);
+                } else if (playerSelection === 'Paper' && computerSelection === 'Paper') {
+                    return alert ("Draw. Try again. Score: " + player + " to " + computer);
+                } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
+                    computer++;
+                    return alert("You lose. Paper beats Rock. Score: " + player + " to " + computer);
+                } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
+                    computer++;
+                    return alert ("You lose. Paper beats Rock. Score: " + player + " to " + computer);
+                } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
+                    player++;
+                    return alert ("You win! Rock beats Scissors. Score: " + player + " to " + computer);
+                } else if (playerSelection === 'Scissors' && computerSelection === 'Scissors') {
+                    return  alert ("Draw. Try again. Score: " + player + " to " + computer);}
+                    else {
+                        return alert ("Please, enter valid type")
+                    }
+                }
+            
+            function game() {
+            for (let i = 0; i < 6; i++) {
+                let playerSelection = prompt('"Type: Rock, Paper, or Scissors" and press F12 to see results')
+                const computerSelection = computerPlay();
+                console.log(computerSelection);
+                console.log(playRound(playerSelection, computerSelection));
+            }
+            if (player > computer) {
+                console.log("Congratulations! You won! Be the HERO one more time! Final Score: " + player + " to " + computer);
+            } else if (computer > player) {
+                console.log("Oops. You lost! Try again for victory! Final Score: " + player + " to " + computer);
+            } else
+                console.log("DRAWWW! Friendship has won;) Final Score: " + player + " to " + computer);
+        }
+        game();
+
+        </script>
+</body>
+</html>
